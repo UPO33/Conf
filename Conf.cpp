@@ -1,5 +1,23 @@
 
-const char* gStrTest = "a = 0, { b = 1, c = 2}";
+const char* gSimpleTest = "a = 0, { b = 1, c = 2}";
+
+const char* gComplexTest =
+R"(
+{
+	tittle = "string",
+	size = { 800, 600 },
+	enable = true,
+	items =
+	{
+		{
+			"tree",{ 0,0,0 }
+		},
+		{
+			"apple",{ 128, 128, 128 }
+		},
+	}
+}
+)";
 
 #include <string>
 #include <vector>
@@ -51,7 +69,7 @@ void PrintNode(const ConfNode& node, int intent = 0)
 int main()
 {
 	ConfNode root;
-	ConfRead(gStrTest, root);
+	ConfRead(gSimpleTest, root);
 	PrintNode(root);
 
 	system("pause");
